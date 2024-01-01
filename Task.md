@@ -25,16 +25,30 @@ To install Ansible on your control machine, follow these steps:
 sudo apt update
 sudo apt install ansible
 ```
+### macOS
 
-Common Commands Overview
-1. Ad-hoc Commands: Execute quick, one-off tasks using the ansible command.
+```bash
+brew install ansible
+```
+
+### Windows
+
+Install Ansible using the Windows Subsystem for Linux (WSL) or through third-party tools like Cygwin.
+
+## Common Commands Overview
+
+### 1. Ad-hoc Commands: 
+
+Execute quick, one-off tasks using the ansible command.
 
 ```bash
 # Example: Ping all servers
 ansible all -m ping
 ```
 
-2. Playbooks:Define and execute multi-step tasks in YAML format using playbooks.
+### 2. Playbooks:
+
+Define and execute multi-step tasks in YAML format using playbooks.
 
 yaml
 ```bash
@@ -53,7 +67,9 @@ yaml
         state: started
 ```
 
-3. Roles : Organize playbooks by creating reusable roles for specific functionalities.
+### 3. Roles :
+
+Organize playbooks by creating reusable roles for specific functionalities.
 
 yaml
 
@@ -80,6 +96,82 @@ yaml
         name: nginx
         state: restarted
 ```
+
+### 4. Ansible Configuration
+
+Display Ansible configuration settings:
+
+```bash
+
+ansible-config list
+```
+
+### 5. Managing Playbooks
+
+Execute a playbook with a specific inventory file:
+
+```bash
+
+ansible-playbook -i inventory.ini my_playbook.yml
+```
+
+### 6. Working with Roles
+
+Create a new Ansible role:
+
+```bash
+
+ansible-galaxy init my_role
+```
+
+Install roles from Ansible Galaxy:
+
+```bash
+
+ansible-galaxy install username.role_name
+```
+
+### 7. Working with Modules
+
+List all available Ansible modules:
+
+```bash
+
+ansible-doc -l
+```
+
+Display documentation for a specific module:
+
+```bash
+
+ansible-doc <module_name>
+```
+
+### 8. Debugging
+
+Print variables and their values:
+
+```bash
+
+ansible-playbook my_playbook.yml -e "debug=true"
+```
+### 9. Inventory Management
+
+List hosts in your inventory:
+
+```bash
+
+ansible-inventory --list
+```
+
+Display information about a specific host:
+
+```bash
+
+ansible-inventory --host <hostname>
+```
+
+
 
 ## Features
 
